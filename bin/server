@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+# 將專案根目錄設定成 require 查詢目錄
+$LOAD_PATH.unshift("#{File.absolute_path('../..', __FILE__)}")
+
+require 'optparse'
+
+# 引用主物件
+require 'config/application'
+
+# 儲存指令設定值
+options = {}
+server = ARGV.shift unless ARGV[0]&.start_with?('-')
+
+# 利用 Ruby 的 OptionParser 解析指令
+OptionParser.new do |opts|
+  opts.banner = 'Usage: serve SERVER [options]'
+
+  opts.on('-p', '--port=PORT', 'Server Port') do |port|
+    options[:Port] = port&.to_i
+  end
+
+  puts opts.help unless server
+end.parse!
+
+SimpleRPG.run(server, options) if server
