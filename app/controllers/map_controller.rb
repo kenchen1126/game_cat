@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-class MapController
-  def initialize(conn)
-    @conn = conn
+class MapController < BaseController
+
+  def join
+    boardcast(:join, current_player.id)
   end
 
   def move(x, y)
-    @conn.write(command: 'move', parameters: [x, y])
+    boardcast(:move, current_player.id, x, y)
   end
 end

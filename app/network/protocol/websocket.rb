@@ -34,7 +34,9 @@ module Protocol
       raise InvalidRequest unless websocket?
 
       @ws = Faye::WebSocket.new(@env)
+      @ws.on :open, @conn.method(:open)
       @ws.on :message, method(:receive)
+      @ws.on :close, @conn.method(:close)
     end
   end
 end
