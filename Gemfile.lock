@@ -8,7 +8,7 @@ GEM
     nio4r (2.5.2)
     puma (4.3.5)
       nio4r (~> 2.0)
-    rack (2.2.3)
+    rack (2.2.6.4)
     rb-fsevent (0.10.4)
     sequel (5.33.0)
     sqlite3 (1.4.2)
@@ -23,7 +23,7 @@ PLATFORMS
 DEPENDENCIES
   faye-websocket (~> 0.10.9)
   puma (~> 4.3, >= 4.3.5)
-  rack (~> 2.2, >= 2.2.3)
+  rack (~> 2.2)
   rb-fsevent (~> 0.10.4)
   sequel (~> 5.33)
   sqlite3 (~> 1.4, >= 1.4.2)
